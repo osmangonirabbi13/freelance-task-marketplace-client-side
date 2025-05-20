@@ -1,11 +1,7 @@
 import React from "react";
 
-const PrivateRoute = () => {
-  return (
-    <div>
-      <h1>PrivateRoute </h1>
-    </div>
-  );
+const PrivateRoute = ({ children }) => {
+  return children;
 };
 
 export default PrivateRoute;

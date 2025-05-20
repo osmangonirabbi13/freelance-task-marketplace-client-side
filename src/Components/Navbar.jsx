@@ -1,20 +1,43 @@
 import React from "react";
 import { NavLink } from "react-router";
+// import { AuthContext } from "../Provider/AuthProvider";
+// import Swal from "sweetalert2";
 
 const Navbar = () => {
+  // const { user, logOut, totalAmount, loading } = use(AuthContext);
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
+  // const handleLogOut = () => {
+  //   logOut()
+  //     .then(() => {
+  //       if (!loading) {
+  //         return Swal.fire({
+  //           title: "Logout Successfull",
+  //           icon: "success",
+  //           draggable: true,
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
   const Links = (
     <ul>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/paybills">Add Task</NavLink>
+        <NavLink to="/add-task">Add Task</NavLink>
       </li>
       <li>
-        <NavLink to="/profile">Browse Tasks</NavLink>
+        <NavLink to="/browse-tasks">Browse Task</NavLink>
       </li>
       <li>
-        <NavLink to="/profile">My Posted Tasks</NavLink>
+        <NavLink to="/my-tasks">My Post Task</NavLink>
       </li>
     </ul>
   );
@@ -48,8 +71,8 @@ const Navbar = () => {
               {Links}
             </ul>
           </div>
-          <a className=" text-sm md:text-2xl  lg:text-2xl font-semibold">
-            Freelance <span className="text-emerald-400">Marketplace </span>
+          <a className=" text-2xl font-semibold">
+            Pay <span className="text-emerald-400">Bills </span>
           </a>
           <div></div>
         </div>
@@ -60,15 +83,67 @@ const Navbar = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/paybills">Add Task</NavLink>
+              <NavLink to="/add-task">Add Task</NavLink>
             </li>
             <li>
-              <NavLink to="/profile">Browse Tasks</NavLink>
+              <NavLink to="/browse-tasks">Browse Task</NavLink>
             </li>
             <li>
-              <NavLink to="/profile">My Posted Tasks</NavLink>
+              <NavLink to="/my-tasks">My Post Task</NavLink>
             </li>
           </ul>
+        </div>
+        <div className="navbar-end">
+          {"ii" ? (
+            <div className="flex gap-2">
+              {/* nav  bar end  */}
+
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle w-14 h-14 avatar"
+                >
+                  <div className="w-10  rounded-full">
+                    <img
+                      className=" "
+                      alt="user profile"
+                      src={`${"https://i.ibb.co/sd4hhqkR/portrait-white-man-isolated.jpg"}`}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3  w-70 p-2 shadow"
+                >
+                  <li>
+                    <div className="flex flex-col pb-4 items-start border-b-2 border-gray-200">
+                      <p className=" text-sm pb-2 ">
+                        {"user && user.displayName"}
+                      </p>
+                      <p className="">{"user && user.email"}</p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <button>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <>
+              <NavLink to="/auth/login" className="btn btn-primary px-10">
+                Login
+              </NavLink>
+              <NavLink
+                to="/auth/register"
+                className="btn btn-primary px-10 ml-5 mr-4"
+              >
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </nav>
