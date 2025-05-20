@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <footer className="py-6 dark:bg-gray-100 dark:text-gray-900">
         <div
-          className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50"
+          className=" px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50"
           bis_skin_checked="1"
         >
           <div className="grid grid-cols-12" bis_skin_checked="1">
