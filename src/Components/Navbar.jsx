@@ -1,10 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthContext";
 // import { AuthContext } from "../Provider/AuthProvider";
 // import Swal from "sweetalert2";
 
 const Navbar = () => {
-  // const { user, logOut, totalAmount, loading } = use(AuthContext);
+  const { user } = use(AuthContext);
 
   // if (loading) {
   //   return <Loading />;
@@ -94,7 +95,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {"ii" ? (
+          {user ? (
             <div className="flex gap-2">
               {/* nav  bar end  */}
 
