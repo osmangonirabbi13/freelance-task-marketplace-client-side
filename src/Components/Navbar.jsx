@@ -1,30 +1,15 @@
 import React, { use } from "react";
 import { NavLink } from "react-router";
-import { AuthContext } from "../Provider/AuthContext";
-// import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../Provider/AuthProvider";
+import Loading from "../Pages/Loading";
 // import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user } = use(AuthContext);
+  const { user, loading } = use(AuthContext);
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {
-  //       if (!loading) {
-  //         return Swal.fire({
-  //           title: "Logout Successfull",
-  //           icon: "success",
-  //           draggable: true,
-  //         });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  if (loading) {
+    return <Loading />;
+  }
 
   const Links = (
     <ul>
@@ -72,8 +57,8 @@ const Navbar = () => {
               {Links}
             </ul>
           </div>
-          <a className=" text-2xl font-semibold">
-            Pay <span className="text-emerald-400">Bills </span>
+          <a className=" text-lg md:text-2xl lg:text-2xl font-semibold md:flex lg:flex hidden">
+            Freelance <span className="text-emerald-400"> Marketplace </span>
           </a>
           <div></div>
         </div>
@@ -109,7 +94,7 @@ const Navbar = () => {
                     <img
                       className=" "
                       alt="user profile"
-                      src={`${"https://i.ibb.co/sd4hhqkR/portrait-white-man-isolated.jpg"}`}
+                      src={`${user && user.photoURL}`}
                     />
                   </div>
                 </div>
@@ -120,12 +105,12 @@ const Navbar = () => {
                   <li>
                     <div className="flex flex-col pb-4 items-start border-b-2 border-gray-200">
                       <p className=" text-sm pb-2 ">
-                        {"user && user.displayName"}
+                        {user && user.displayName}
                       </p>
-                      <p className="">{"user && user.email"}</p>
+                      <p className="">{user && user.email}</p>
                     </div>
                   </li>
-
+                  <li></li>
                   <li>
                     <button>Logout</button>
                   </li>

@@ -1,11 +1,90 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
-import { Link } from "react-router";
+import { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
+import Loading from "./Loading";
 
 const Register = () => {
+  const { createUser, updateUserProfile, loading, setUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photoUrl = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(name, photoUrl, email, password);
+
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const isLongEnough = password.length >= 6;
+
+    if (!hasUppercase || !hasLowercase || !isLongEnough) {
+      setPasswordError(
+        "Password must be at least 6 characters and include both uppercase and lowercase letters."
+      );
+      return;
+    } else {
+      setPasswordError("");
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        navigate(`${location.state ? location.state : "/"}`);
+        updateUserProfile(name, photoUrl)
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photoUrl });
+            const userProfile = {
+              email,
+              name,
+              photoUrl,
+            };
+
+            fetch("http://localhost:3000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(userProfile),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                // navigate(`${location.state ? location.state : "/"}`);
+                if (data.insertedId) {
+                  Swal.fire({
+                    icon: "success",
+                    title: "Your account is created.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+              });
+          })
+          .catch((error) => {
+            console.error(error);
+            alert(error.message);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      });
+  };
+
   return (
     <div>
       <div className="flex justify-center min-h-screen items-center">
@@ -13,7 +92,7 @@ const Register = () => {
           <h2 className="font-semibold text-2xl text-center">
             Register your account
           </h2>
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <fieldset className="fieldset">
               {/* Name */}
               <label className="label">Name</label>
