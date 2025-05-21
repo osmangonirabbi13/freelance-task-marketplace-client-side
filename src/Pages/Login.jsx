@@ -21,7 +21,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        console.log("Logged in:", user);
+        // console.log("Logged in:", user);
 
         Swal.fire({
           title: "Login Successful",
@@ -32,7 +32,6 @@ const Login = () => {
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        // console.error("Login error:", error);
         Swal.fire({
           title: "Login Failed",
           text: error.message,
@@ -45,7 +44,7 @@ const Login = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
-        // console.log("Google user:", user);
+
         Swal.fire({
           title: "Google Sign-In Successful",
           icon: "success",
@@ -55,7 +54,6 @@ const Login = () => {
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        // console.error("Google login error:", error);
         Swal.fire({
           title: "Google Sign-In Failed",
           text: error.message,

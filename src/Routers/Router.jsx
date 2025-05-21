@@ -29,7 +29,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/browse-tasks",
-        Component: BrowseTasks,
+        element: (
+          <PrivateRoute>
+            <BrowseTasks />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-tasks",

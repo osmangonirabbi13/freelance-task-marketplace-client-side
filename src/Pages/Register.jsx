@@ -75,14 +75,21 @@ const Register = () => {
               });
           })
           .catch((error) => {
-            console.error(error);
-            alert(error.message);
+            Swal.fire({
+              title: "Google Sign-In Failed",
+              text: error.message,
+              icon: "error",
+            });
           });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorCode, errorMessage);
+
+        Swal.fire({
+          title: "Google Sign-In Failed",
+          text: errorMessage,
+          icon: "error",
+        });
       });
   };
 
