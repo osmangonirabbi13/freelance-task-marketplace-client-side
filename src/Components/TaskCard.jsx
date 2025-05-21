@@ -1,42 +1,40 @@
 import React from "react";
 import { FaHeart, FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const ServiceCard = ({ singleTask }) => {
-  const { _id, Taskname, category, photo, price, deadline } = singleTask;
+  const { _id, Taskname, category, price, deadline, description } = singleTask;
+
+  const navigate = useNavigate();
+
+  const handleTaskDetails = (_id) => {
+    if (_id) {
+      navigate(`/browse-tasks/${_id}`);
+    }
+  };
   return (
-    <div className="w-full  rounded-xl  shadow hover:shadow-lg transition duration-300 bg-white overflow-hidden">
-      {/* Image */}
-      <div className="relative">
-        <img
-          src={photo}
-          alt="Service Preview"
-          className="w-full h-56  object-cover"
-        />
-        {/* Favorite Icon */}
-      </div>
-
-      {/* Body */}
-      <div className="p-4 space-y-2">
-        {/* Category & Rating */}
-        <div className="flex items-center justify-between text-sm">
-          <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+    <div className=" ">
+      <div className="card bg-base-100 h-80 shadow-sm">
+        <div className="card-body">
+          <p className="font-bold">Deadline : {deadline}</p>
+          <p className="card-title  text-ellipsis">{Taskname}</p>
+          <h2 className="card-title text-sm md:text-lg lg:text-xl">
+            <span className="font-bold text-indigo-500">Category :</span>{" "}
             {category}
-          </span>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-base font-semibold leading-tight">{Taskname}</h3>
-
-        {/* User Info & Price */}
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-700">
-              {deadline}
-            </span>
+          </h2>
+          <h2 className="card-title">
+            <span className="font-bold text-indigo-500">Budget : </span>
+            {price} $
+          </h2>
+          <p className="truncate ">{description}</p>
+          <div className="card-actions mt-5">
+            <button
+              onClick={() => handleTaskDetails(_id)}
+              className="btn btn-primary w-full"
+            >
+              See Details
+            </button>
           </div>
-          <span className="text-sm text-gray-500">
-            Budget : <span className="font-semibold text-black">{price} $</span>
-          </span>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router";
 // import { Link } from "react-router";
 
 const BrowseCard = ({ singleTask }) => {
-  const { _id, Taskname, category, photo, price, description } = singleTask;
+  const { _id, Taskname, category, price, description } = singleTask;
   const navigate = useNavigate();
 
   const handleTaskDetails = (_id) => {
@@ -13,10 +13,7 @@ const BrowseCard = ({ singleTask }) => {
   };
   return (
     <div className=" ">
-      <div className="card bg-base-100  shadow-sm">
-        <figure>
-          <img src={photo} alt="Shoes" />
-        </figure>
+      <div className="card bg-base-100 h-80  shadow-sm">
         <div className="card-body">
           <p className="card-title  text-ellipsis">{Taskname}</p>
           <h2 className="card-title text-sm md:text-lg lg:text-xl">

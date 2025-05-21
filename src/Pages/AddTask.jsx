@@ -116,13 +116,6 @@ const AddTask = () => {
           readOnly
           className="input input-bordered w-full"
         />
-        <label className="label">Photo Url : </label>
-        <input
-          name="photo"
-          className="input input-bordered w-full"
-          placeholder="Photo URL "
-          required
-        />
 
         <input
           type="submit"
