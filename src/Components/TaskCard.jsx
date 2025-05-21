@@ -3,7 +3,8 @@ import { FaHeart, FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
 const ServiceCard = ({ singleTask }) => {
-  const { _id, Taskname, category, price, deadline, description } = singleTask;
+  const { _id, Taskname, category, price, deadline, description, userName } =
+    singleTask;
 
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const ServiceCard = ({ singleTask }) => {
     <div className=" ">
       <div className="card bg-base-100 h-80 shadow-sm">
         <div className="card-body">
+          <p className="font-bold text-gray-400"> {userName}</p>
           <p className="font-bold">Deadline : {deadline}</p>
           <p className="card-title  text-ellipsis">{Taskname}</p>
           <h2 className="card-title text-sm md:text-lg lg:text-xl">

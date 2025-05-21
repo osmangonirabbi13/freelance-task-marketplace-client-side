@@ -56,6 +56,8 @@ export const router = createBrowserRouter([
             <MyPostTasks />
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:3000/freelances"),
+        HydrateFallback: Loading,
       },
     ],
   },
