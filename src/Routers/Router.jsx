@@ -20,6 +20,8 @@ export const router = createBrowserRouter([
         path: "/",
         index: true,
         Component: Home,
+        loader: () => fetch("http://localhost:3000/freelances"),
+        HydrateFallback: Loading,
       },
       {
         path: "/add-task",

@@ -16,7 +16,9 @@ const AddTask = () => {
 
     newTask.email = user?.email;
     newTask.name = user?.displayName;
-    newTask.deadline = deadline.toISOString();
+
+    const formattedDate = deadline.toLocaleDateString("en-GB");
+    newTask.deadline = formattedDate.replace(/\//g, "-");
 
     // Send to backend
     fetch("http://localhost:3000/freelances", {
@@ -88,7 +90,7 @@ const AddTask = () => {
             selected={deadline}
             onChange={(date) => setDeadline(date)}
             className="input input-bordered w-full"
-            dateFormat="yyyy-MM-dd"
+            dateFormat="dd-MM-yyyy"
           />
         </div>
         <label className="label">Budget : </label>
