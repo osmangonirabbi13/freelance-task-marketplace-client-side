@@ -10,6 +10,7 @@ import BrowseTasks from "../Pages/BrowseTasks";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../Pages/Loading";
 import TaskDetails from "../Pages/TaskDetails";
+import UpdateTask from "../Pages/UpdateTask";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:3000/freelances"),
+        HydrateFallback: Loading,
+      },
+      {
+        path: "updatetask/:id",
+        Component: UpdateTask,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/freelances/${params.id}`),
         HydrateFallback: Loading,
       },
     ],

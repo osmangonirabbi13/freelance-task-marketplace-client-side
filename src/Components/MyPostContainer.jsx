@@ -2,12 +2,12 @@ import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyPostContainer = ({ task, setTasks, tasks }) => {
   const { _id, Taskname, category, deadline, price, bidsCount } = task;
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -41,10 +41,6 @@ const MyPostContainer = ({ task, setTasks, tasks }) => {
     });
   };
 
-  const handleEdit = () => {
-    alert("Edit functionality coming soon!");
-  };
-
   return (
     <div className="w-full border p-6 rounded-xl shadow-md bg-white">
       <div className="flex flex-wrap md:flex-nowrap md:justify-between lg:justify-between items-start">
@@ -71,9 +67,11 @@ const MyPostContainer = ({ task, setTasks, tasks }) => {
           >
             <MdDeleteForever size={20} />
           </button>
-          <button onClick={handleEdit} className="btn btn-info text-white">
-            <FaPencilAlt size={20} />
-          </button>
+          <Link to={`/updatetask/${_id}`}>
+            <button className="btn btn-info text-white">
+              <FaPencilAlt size={20} />
+            </button>
+          </Link>
         </div>
       </div>
     </div>
