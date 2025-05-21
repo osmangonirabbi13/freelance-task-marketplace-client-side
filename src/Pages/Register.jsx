@@ -7,7 +7,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Loading from "./Loading";
 
 const Register = () => {
-  const { createUser, updateUserProfile, loading, setUser } = use(AuthContext);
+  const { createUser, updateUserProfile, loading, setUser, signInGoogle } =
+    use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
   const location = useLocation();
@@ -85,6 +86,28 @@ const Register = () => {
       });
   };
 
+  const handleGoogle = (e) => {
+    e.preventDefault();
+    signInGoogle()
+      .then((result) => {
+        const user = result.user;
+        navigate(`${location.state ? location.state : "/"}`);
+        console.log(user);
+        if (!loading) {
+          return Swal.fire({
+            title: "Login Successfull",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      });
+  };
+
   return (
     <div>
       <div className="flex justify-center min-h-screen items-center">
@@ -150,7 +173,10 @@ const Register = () => {
               <button type="submit" className="btn btn-neutral mt-4">
                 Register
               </button>
-              <button className="btn btn-outline btn-info mt-4">
+              <button
+                onClick={handleGoogle}
+                className="btn btn-outline btn-info mt-4"
+              >
                 <FcGoogle size={25} />
                 <span className="text-sm">Google sign in</span>
               </button>

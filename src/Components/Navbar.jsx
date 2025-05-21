@@ -2,14 +2,31 @@ import React, { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Loading from "../Pages/Loading";
+import Swal from "sweetalert2";
 // import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, loading } = use(AuthContext);
+  const { user, loading, logOut } = use(AuthContext);
 
   if (loading) {
     return <Loading />;
   }
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        if (!loading) {
+          return Swal.fire({
+            title: "Logout Successfull",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const Links = (
     <ul>
@@ -112,7 +129,7 @@ const Navbar = () => {
                   </li>
                   <li></li>
                   <li>
-                    <button>Logout</button>
+                    <button onClick={handleLogOut}>Logout</button>
                   </li>
                 </ul>
               </div>
