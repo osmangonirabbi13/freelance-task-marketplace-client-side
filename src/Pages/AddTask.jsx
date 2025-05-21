@@ -56,7 +56,7 @@ const AddTask = () => {
       <form onSubmit={handleAddTask} className="grid gap-4">
         <label className="label">Task Title : </label>
         <input
-          name="name"
+          name="Taskname"
           className="input input-bordered w-full"
           placeholder="Task Title"
           required

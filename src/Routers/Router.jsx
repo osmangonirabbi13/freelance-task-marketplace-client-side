@@ -8,6 +8,8 @@ import AddTask from "../Pages/AddTask";
 import MyPostTasks from "../Pages/MyPostTasks";
 import BrowseTasks from "../Pages/BrowseTasks";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Loading from "../Pages/Loading";
+import TaskDetails from "../Pages/TaskDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,13 +29,23 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/browse-tasks",
+        loader: () => fetch("http://localhost:3000/freelances"),
+        Component: BrowseTasks,
+        HydrateFallback: Loading,
+      },
+      {
+        path: "browse-tasks/:id",
         element: (
           <PrivateRoute>
-            <BrowseTasks />
+            <TaskDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/freelances/${params.id}`),
+        HydrateFallback: Loading,
       },
       {
         path: "/my-tasks",
