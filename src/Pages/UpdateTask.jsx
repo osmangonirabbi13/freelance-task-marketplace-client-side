@@ -12,8 +12,6 @@ const UpdateTask = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updateTask = Object.fromEntries(formData.entries());
-    // updateTask.email = user?.email;
-    // updateTask.name = user?.displayName;
 
     // send updated task  to the db
     fetch(`http://localhost:3000/freelances/${_id}`, {

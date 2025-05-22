@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
+@tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 * {
   font-family:"Ancizar Serif", serif;
@@ -10,3 +12,5 @@
 a.active{
   @apply bg-success
 }
+
+

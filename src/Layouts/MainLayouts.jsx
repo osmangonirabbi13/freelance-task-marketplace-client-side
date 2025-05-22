@@ -7,8 +7,8 @@ const MainLayouts = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className="min-h-[calc(100vh-116px)]">
-        <div className="max-w-screen-3xl  mx-auto px-8 md:px-12 lg:px-16">
+      <div className="min-h-[calc(100vh-116px)] ">
+        <div className="">
           <Outlet />
         </div>
       </div>

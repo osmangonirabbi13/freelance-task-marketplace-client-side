@@ -21,8 +21,6 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        // console.log("Logged in:", user);
-
         Swal.fire({
           title: "Login Successful",
           icon: "success",
@@ -63,8 +61,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen items-center">
-      <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+    <div className="flex justify-center min-h-screen items-center ">
+      <div className="card bg-base-100 w-full max-w-sm shadow-2xl ">
         <h2 className="text-center font-semibold text-2xl py-5">
           Login to your account
         </h2>

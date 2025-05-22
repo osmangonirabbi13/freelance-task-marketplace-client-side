@@ -15,7 +15,7 @@ const ServiceCard = ({ singleTask }) => {
   };
   return (
     <div className=" ">
-      <div className="card bg-base-100 h-80 shadow-sm">
+      <div className="card bg-base-100 h-80 shadow-sm dark:bg-gray-900 text-black dark:text-white dark:border-1 mb-5">
         <div className="card-body">
           <p className="font-bold text-gray-400"> {userName}</p>
           <p className="font-bold">Deadline : {deadline}</p>

@@ -12,8 +12,8 @@ const BrowseCard = ({ singleTask }) => {
     }
   };
   return (
-    <div className=" ">
-      <div className="card bg-base-100 h-80  shadow-sm">
+    <div className="">
+      <div className="card bg-base-100 h-80  shadow-sm ">
         <div className="card-body">
           <p className="font-bold text-gray-400"> {userName}</p>
           <p className="card-title  text-ellipsis">{Taskname}</p>
