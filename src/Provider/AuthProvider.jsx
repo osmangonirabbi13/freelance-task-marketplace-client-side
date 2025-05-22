@@ -10,26 +10,21 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-// Auth Context
 export const AuthContext = createContext();
 
-// Theme Context
 export const ThemeContext = createContext({
   darkMode: true,
   toggleDarkMode: () => {},
 });
 
-// Custom Hook to access Theme Context
 export const useTheme = () => useContext(ThemeContext);
 
 const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  // 🔐 Auth State
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🌙 Theme State
   const [darkMode, setDarkMode] = useState(() => {
     const stored = localStorage.getItem("darkMode");
     return stored === "true";
@@ -49,7 +44,6 @@ const AuthProvider = ({ children }) => {
     }
   }, [darkMode]);
 
-  // 🔁 Firebase Auth Observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -58,7 +52,6 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  // 🔧 Auth Methods
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);

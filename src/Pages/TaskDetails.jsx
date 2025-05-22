@@ -26,12 +26,15 @@ const TaskDetails = () => {
 
     // setBidsCount(bidsCount + 1);
 
-    fetch(`http://localhost:3000/freelances/${_id}/bid`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://assignment-10-server-side-dun-two.vercel.app/freelances/${_id}/bid`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

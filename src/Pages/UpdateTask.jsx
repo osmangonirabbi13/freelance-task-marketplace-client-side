@@ -14,13 +14,16 @@ const UpdateTask = () => {
     const updateTask = Object.fromEntries(formData.entries());
 
     // send updated task  to the db
-    fetch(`http://localhost:3000/freelances/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateTask),
-    })
+    fetch(
+      `https://assignment-10-server-side-dun-two.vercel.app/freelances/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateTask),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

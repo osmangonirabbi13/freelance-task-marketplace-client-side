@@ -21,7 +21,7 @@ const AddTask = () => {
     newTask.deadline = formattedDate.replace(/\//g, "-");
 
     // Send to backend
-    fetch("http://localhost:3000/freelances", {
+    fetch("https://assignment-10-server-side-dun-two.vercel.app/freelances", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -26,7 +26,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photoUrl, email, password);
+    // console.log(name, photoUrl, email, password);
 
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
@@ -54,13 +54,16 @@ const Register = () => {
               photoUrl,
             };
 
-            fetch("http://localhost:3000/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(userProfile),
-            })
+            fetch(
+              "https://assignment-10-server-side-dun-two.vercel.app/users",
+              {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(userProfile),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 // navigate(`${location.state ? location.state : "/"}`);
@@ -99,7 +102,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         navigate(`${location.state ? location.state : "/"}`);
-        console.log(user);
+        // console.log(user);
         if (!loading) {
           return Swal.fire({
             title: "Login Successfull",

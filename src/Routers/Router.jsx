@@ -21,7 +21,10 @@ export const router = createBrowserRouter([
         path: "/",
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/featured-tasks"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-side-dun-two.vercel.app/featured-tasks"
+          ),
         HydrateFallback: Loading,
       },
       {
@@ -35,7 +38,10 @@ export const router = createBrowserRouter([
 
       {
         path: "/browse-tasks",
-        loader: () => fetch("http://localhost:3000/freelances"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-side-dun-two.vercel.app/freelances"
+          ),
         Component: BrowseTasks,
         HydrateFallback: Loading,
       },
@@ -47,7 +53,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/freelances/${params.id}`),
+          fetch(
+            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
+          ),
         HydrateFallback: Loading,
       },
       {
@@ -57,14 +65,19 @@ export const router = createBrowserRouter([
             <MyPostTasks />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/freelances"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-side-dun-two.vercel.app/freelances"
+          ),
         HydrateFallback: Loading,
       },
       {
         path: "updatetask/:id",
         Component: UpdateTask,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/freelances/${params.id}`),
+          fetch(
+            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
+          ),
         HydrateFallback: Loading,
       },
     ],

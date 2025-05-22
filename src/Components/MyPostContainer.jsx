@@ -20,9 +20,12 @@ const MyPostContainer = ({ task, setTasks, tasks }) => {
       if (result.isConfirmed) {
         // start deleting the  Task
 
-        fetch(`http://localhost:3000/freelances/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-side-dun-two.vercel.app/freelances/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -57,7 +60,7 @@ const MyPostContainer = ({ task, setTasks, tasks }) => {
           </p>
 
           <p className="text-lg mt-2">
-            <strong>Bids:</strong> {bidsCount}
+            <strong>Total Bids:</strong> {bidsCount}
           </p>
         </div>
         <div className="flex mt-5  gap-2">
