@@ -31,9 +31,9 @@ const NeedSomething = () => {
         </p>
       </Fade>
 
-      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 max-w-screen-2xl mx-auto px-8 md:px-12 lg:px-8 mt-20">
+      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 max-w-screen-2xl mx-auto px-8 md:px-12 lg:px-8 mt-20 pb-10 ">
         <Fade direction="up" duration={1000}>
-          <div>
+          <div className="h-auto shadow-sm p-3">
             <img
               className="w-20 dark:bg-white p-2"
               src={job}
@@ -47,7 +47,7 @@ const NeedSomething = () => {
           </div>
         </Fade>
         <Fade direction="up" duration={1000}>
-          <div>
+          <div className="h-auto shadow-sm p-3">
             <img
               className="w-20 dark:bg-white p-2"
               src={freelancer}
@@ -62,7 +62,7 @@ const NeedSomething = () => {
           </div>
         </Fade>
         <Fade direction="up" duration={1000}>
-          <div>
+          <div className="h-auto shadow-sm p-3">
             <img
               className="w-20  dark:bg-white p-2"
               src={pay}
@@ -76,7 +76,7 @@ const NeedSomething = () => {
           </div>
         </Fade>
         <Fade direction="up" duration={1000}>
-          <div>
+          <div className="h-auto shadow-sm p-3">
             <img
               className="w-20 dark:bg-white p-2"
               src={help}
