@@ -11,6 +11,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Loading from "../Pages/Loading";
 import TaskDetails from "../Pages/TaskDetails";
 import UpdateTask from "../Pages/UpdateTask";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
     ],
   },
 
+  {
+    path: "/*",
+    Component: ErrorPage,
+  },
   // Login section
 
   {

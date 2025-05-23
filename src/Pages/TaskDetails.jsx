@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -46,6 +46,28 @@ const TaskDetails = () => {
         }
       });
   };
+
+  if (!_id) {
+    return (
+      <div>
+        <div className="flex flex-col justify-center items-center  max-w-screen-2xl mx-auto bg-white mt-40 rounded-2xl">
+          <h1 className="text-3xl font-bold text-blue-500 mb-4 pt-9">
+            No Data Found!!
+          </h1>
+          <p className="text-gray-700 text-xl">
+            No Data Found with this Number -{" "}
+            <span className="font-bold text-black-600">{_id}</span>
+          </p>
+          <Link to="/browse-tasks">
+            <button className="btn btn-primary mt-6 mb-6">
+              {" "}
+              Browse All Tasks
+            </button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-10 max-w-screen-2xl mx-auto px-4">

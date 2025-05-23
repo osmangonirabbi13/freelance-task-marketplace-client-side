@@ -11,6 +11,7 @@ const BrowseCard = ({ singleTask }) => {
       navigate(`/browse-tasks/${_id}`);
     }
   };
+
   return (
     <div className="">
       <div className="card bg-base-100 h-80  shadow-sm ">
