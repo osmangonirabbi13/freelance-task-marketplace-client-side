@@ -3,6 +3,7 @@ import TaskContainer from "../Components/TaskContainer";
 import Hero from "../Components/Hero";
 import NeedSomething from "../Components/NeedSomething";
 import FreelanceTalent from "../Components/FreelanceTalent";
+import SubscribeNews from "../Components/SubscribeNews";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <TaskContainer />
       <NeedSomething />
       <FreelanceTalent />
+      <SubscribeNews />
     </div>
   );
 };
