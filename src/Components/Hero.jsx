@@ -30,14 +30,13 @@ const Hero = () => {
                       deleteSpeed={25}
                       loop={0}
                       typeSpeed={75}
-                      words={[
-                        "Unlock the power of freelancers for your business needs",
-                      ]}
+                      words={["Discover Top Talent "]}
                     />
                   </h1>
                   <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
-                    Unlock the Power of Freelancers to Meet Your Business Needs
-                    and Propel Your Company Forward
+                    Access a diverse pool of freelancers ready to meet your
+                    needs. Simplify your search for the perfect service
+                    provider.
                   </p>
 
                   <Fade direction="left" duration={1000}>
@@ -51,11 +50,9 @@ const Hero = () => {
               </div>
             </Fade>
 
-            <Fade direction="right" duration={1500}>
-              <div className=" pt-10  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px] ">
-                <img src={slider1} />
-              </div>
-            </Fade>
+            <div className=" pt-10  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px] ">
+              <img src={slider1} />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -64,16 +61,7 @@ const Hero = () => {
               <div>
                 <div className="pt-6 px-4 lg:w-[470px]">
                   <h1 className=" text-3xl md:text-2xl lg:text-3xl font-bold ">
-                    <Typewriter
-                      cursor
-                      cursorBlinking
-                      cursorColor="#cd0808"
-                      delaySpeed={1000}
-                      deleteSpeed={25}
-                      loop={0}
-                      typeSpeed={75}
-                      words={["Find & Hire Expert Freelancers"]}
-                    />
+                    Find & Hire Expert Freelancers
                   </h1>
                   <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
                     Work with the best freelance talent from around the world on
@@ -87,11 +75,10 @@ const Hero = () => {
                 </div>
               </div>
             </Fade>
-            <Fade direction="right" duration={1500}>
-              <div className=" pt-10  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px]">
-                <img src={slider2} />
-              </div>
-            </Fade>
+
+            <div className=" pt-10  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px]">
+              <img src={slider2} />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -100,21 +87,11 @@ const Hero = () => {
               <div>
                 <div className="pt-6 px-4 lg:w-[450px]">
                   <h1 className=" text-3xl md:text-2xl lg:text-3xl font-bold ">
-                    <Typewriter
-                      cursor
-                      cursorBlinking
-                      cursorColor="#cd0808"
-                      delaySpeed={1000}
-                      deleteSpeed={25}
-                      loop={0}
-                      typeSpeed={75}
-                      words={["Discover Top Talent"]}
-                    />
+                    Unlock the power of freelancers for your business needs
                   </h1>
                   <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
-                    Access a diverse pool of freelancers ready to meet your
-                    needs. Simplify your search for the perfect service
-                    provider.
+                    Unlock the Power of Freelancers to Meet Your Business Needs
+                    and Propel Your Company Forward
                   </p>
                   <div className="pt-4">
                     <Link to="/browse-tasks" className="btn btn-primary">
@@ -125,11 +102,9 @@ const Hero = () => {
               </div>
             </Fade>
 
-            <Fade direction="right" duration={1500}>
-              <div className="  pt-8  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px]">
-                <img src={slider3} />
-              </div>
-            </Fade>
+            <div className="  pt-8  md:pt-6 lg:pt-0 md:h-[340px] lg:h-[500px]">
+              <img src={slider3} />
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>

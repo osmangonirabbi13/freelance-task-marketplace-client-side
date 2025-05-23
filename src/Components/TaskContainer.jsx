@@ -33,18 +33,7 @@ const TaskContainer = () => {
 
       <Fade direction="up" duration={1500}>
         <p className="text-center pt-5 text-xl">
-          <Typewriter
-            cursor
-            cursorBlinking
-            cursorColor="#cd0808"
-            delaySpeed={1000}
-            deleteSpeed={25}
-            loop={0}
-            typeSpeed={75}
-            words={[
-              "Discover our featured services designed to elevate your experience",
-            ]}
-          />
+          Discover our featured services designed to elevate your experience
         </p>
       </Fade>
       <Fade direction="left" duration={1800}>

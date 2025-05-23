@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
+import logo from "/logo.svg";
 
 const Footer = () => {
   return (
@@ -24,7 +25,7 @@ const Footer = () => {
                   className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600"
                   bis_skin_checked="1"
                 >
-                  <img src="/public/logo.svg" alt="" srcset="" />
+                  <img src={logo} alt="" srcset="" />
                 </div>
                 <span className="self-center text-2xl font-semibold">
                   Freelance Marketplace
