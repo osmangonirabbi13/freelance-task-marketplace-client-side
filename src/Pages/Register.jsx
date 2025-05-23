@@ -101,7 +101,7 @@ const Register = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
-        navigate(`${location.state ? location.state : "/"}`);
+
         // console.log(user);
         if (!loading) {
           return Swal.fire({
@@ -110,6 +110,7 @@ const Register = () => {
             draggable: true,
           });
         }
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         const errorCode = error.code;
