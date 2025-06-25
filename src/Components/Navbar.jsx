@@ -43,6 +43,17 @@ const Navbar = () => {
       <li>
         <NavLink to="/my-tasks">My Post Task</NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/dashboard/home">Dashboard</NavLink>
+          </li>
+        </>
+      )}
+
+      <li>
+        <NavLink to="/about">About Us</NavLink>
+      </li>
     </ul>
   );
   return (
@@ -94,6 +105,17 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/my-tasks">My Post Task</NavLink>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/home">Dashboard</NavLink>
+                </li>
+              </>
+            )}
+
+            <li>
+              <NavLink to="/about">About Us</NavLink>
             </li>
           </ul>
         </div>

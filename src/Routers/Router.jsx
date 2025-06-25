@@ -12,7 +12,8 @@ import Loading from "../Pages/Loading";
 import TaskDetails from "../Pages/TaskDetails";
 import UpdateTask from "../Pages/UpdateTask";
 import ErrorPage from "../Pages/ErrorPage";
-
+import DashboardLayout from "../Layouts/DashboardLayout";
+import DashboardHome from "../Components/Dashboard/Home/DashboardHome";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,14 +29,6 @@ export const router = createBrowserRouter([
           ),
         HydrateFallback: Loading,
       },
-      {
-        path: "/add-task",
-        element: (
-          <PrivateRoute>
-            <AddTask />
-          </PrivateRoute>
-        ),
-      },
 
       {
         path: "/browse-tasks",
@@ -46,32 +39,7 @@ export const router = createBrowserRouter([
         Component: BrowseTasks,
         HydrateFallback: Loading,
       },
-      {
-        path: "browse-tasks/:id",
-        element: (
-          <PrivateRoute>
-            <TaskDetails />
-          </PrivateRoute>
-        ),
-        loader: ({ params }) =>
-          fetch(
-            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
-          ),
-        HydrateFallback: Loading,
-      },
-      {
-        path: "/my-tasks",
-        element: (
-          <PrivateRoute>
-            <MyPostTasks />
-          </PrivateRoute>
-        ),
-        loader: () =>
-          fetch(
-            "https://assignment-10-server-side-dun-two.vercel.app/freelances"
-          ),
-        HydrateFallback: Loading,
-      },
+
       {
         path: "updatetask/:id",
         Component: UpdateTask,
@@ -101,6 +69,44 @@ export const router = createBrowserRouter([
       {
         path: "/auth/register",
         Component: Register,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        path: "home",
+        Component: DashboardHome,
+      },
+      {
+        path: "my-tasks",
+        element: <MyPostTasks />,
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-side-dun-two.vercel.app/freelances"
+          ),
+        HydrateFallback: Loading,
+      },
+      {
+        path: "browse-tasks/:id",
+        element: <TaskDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
+          ),
+        HydrateFallback: Loading,
+      },
+      {
+        path: "add-task",
+        element: <AddTask />,
       },
     ],
   },
