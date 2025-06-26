@@ -5,6 +5,7 @@ import NeedSomething from "../Components/NeedSomething";
 import FreelanceTalent from "../Components/FreelanceTalent";
 import SubscribeNews from "../Components/SubscribeNews";
 import ClientLogosMarquee from "../Components/ClientLogosMarquee";
+import Review from "../Components/Review";
 
 const Home = () => {
   return (
@@ -12,9 +13,10 @@ const Home = () => {
       <Hero />
       <TaskContainer />
       <NeedSomething />
+
       <ClientLogosMarquee />
       <FreelanceTalent />
-
+      <Review />
       <SubscribeNews />
     </div>
   );

@@ -33,7 +33,7 @@ const Hero = () => {
                       words={["Discover Top Talent "]}
                     />
                   </h1>
-                  <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
+                  <p className=" pt-3 dark:bg-gray-900 text-black    dark:text-white">
                     Access a diverse pool of freelancers ready to meet your
                     needs. Simplify your search for the perfect service
                     provider.
@@ -63,7 +63,7 @@ const Hero = () => {
                   <h1 className=" text-3xl md:text-2xl lg:text-3xl font-bold ">
                     Find & Hire Expert Freelancers
                   </h1>
-                  <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
+                  <p className=" pt-3 dark:bg-gray-900 text-black    dark:text-white">
                     Work with the best freelance talent from around the world on
                     our secure, flexible and cost-effective platform.
                   </p>
@@ -89,7 +89,7 @@ const Hero = () => {
                   <h1 className=" text-3xl md:text-2xl lg:text-3xl font-bold ">
                     Unlock the power of freelancers for your business needs
                   </h1>
-                  <p className="text-base-content pt-3 dark:bg-gray-900 text-black    dark:text-white">
+                  <p className="pt-3 dark:bg-gray-900 text-black    dark:text-white">
                     Unlock the Power of Freelancers to Meet Your Business Needs
                     and Propel Your Company Forward
                   </p>
