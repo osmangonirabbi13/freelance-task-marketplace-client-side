@@ -50,7 +50,6 @@ const BrowseTasks = () => {
           showFilters ? "block" : "hidden"
         } lg:flex flex-wrap gap-4 mb-6 justify-between items-center`}
       >
-        {/* Search */}
         <input
           type="text"
           placeholder="Search tasks..."
@@ -59,7 +58,6 @@ const BrowseTasks = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        {/* Category */}
         <select
           className="select select-bordered w-full md:max-w-xs"
           value={selectedCategory}
@@ -73,7 +71,6 @@ const BrowseTasks = () => {
           ))}
         </select>
 
-        {/* Sort Button */}
         <button
           onClick={handleSortToggle}
           className="btn btn-success text-lg p-2 btn-sm btn-outline"

@@ -14,6 +14,9 @@ import UpdateTask from "../Pages/UpdateTask";
 import ErrorPage from "../Pages/ErrorPage";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import DashboardHome from "../Components/Dashboard/Home/DashboardHome";
+import AboutUs from "../Components/AboutUs";
+import TermsAndConditions from "../Components/TermsAndConditions";
+import ContactUs from "../Components/ContactUs";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -61,6 +64,18 @@ export const router = createBrowserRouter([
             `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
           ),
         HydrateFallback: Loading,
+      },
+      {
+        path: "about",
+        Component: AboutUs,
+      },
+      {
+        path: "terms-and-conditions",
+        Component: TermsAndConditions,
+      },
+      {
+        path: "contact-us",
+        Component: ContactUs,
       },
     ],
   },

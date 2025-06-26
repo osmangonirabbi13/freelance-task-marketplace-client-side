@@ -31,10 +31,17 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/browse-tasks">Browse Task</NavLink>
+      </li>
+      <li>
         <NavLink to="/about">About Us</NavLink>
       </li>
       <li>
-        <NavLink to="/browse-tasks">Browse Task</NavLink>
+        <NavLink to="/contact-us">Contact Us</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/terms-and-conditions">Terms And Conditions</NavLink>
       </li>
       {user && (
         <li>
@@ -46,7 +53,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
-      <div className="navbar max-w-7xl mx-auto px-4 py-2 text-black dark:text-white">
+      <div className="navbar max-w-8xl lg:px-50 mx-auto px-4 py-2 text-black dark:text-white">
         {/* Start */}
         <div className="navbar-start">
           {/* Mobile dropdown */}
