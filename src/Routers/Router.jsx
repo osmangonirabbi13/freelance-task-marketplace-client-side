@@ -112,6 +112,15 @@ export const router = createBrowserRouter([
         path: "add-task",
         element: <AddTask />,
       },
+      {
+        path: "browse-tasks",
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-side-dun-two.vercel.app/freelances"
+          ),
+        Component: BrowseTasks,
+        HydrateFallback: Loading,
+      },
     ],
   },
 ]);

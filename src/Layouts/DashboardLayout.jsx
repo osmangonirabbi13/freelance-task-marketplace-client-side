@@ -59,6 +59,12 @@ const DashboardLayout = () => {
               </NavLink>
             </li>
             <li className="mb-5">
+              <NavLink to="/dashboard/browse-tasks">
+                <FaHome className="inline-block mr-2 " />
+                Browse Task
+              </NavLink>
+            </li>
+            <li className="mb-5">
               <NavLink to="/dashboard/add-task">
                 <FaTasks className="inline-block mr-2" />
                 Add Task

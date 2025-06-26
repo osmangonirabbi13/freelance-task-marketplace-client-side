@@ -34,8 +34,6 @@ const TaskDetails = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        // যদি দরকার হয় বিডার ডেটা পাঠাতে, body দিয়ে দিতে পারো
-        // body: JSON.stringify({ userId: user._id, bidAmount: 100 })
       }
     )
       .then((res) => res.json())
