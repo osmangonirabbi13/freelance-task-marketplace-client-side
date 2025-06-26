@@ -2,7 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router";
 
 const BrowseCard = ({ singleTask }) => {
-  const { _id, Taskname, category, price, description, userName } = singleTask;
+  const {
+    _id,
+    Taskname,
+    category,
+    price,
+    description,
+    userName,
+    bidsCount,
+    photo,
+  } = singleTask;
   const navigate = useNavigate();
 
   const handleTaskDetails = (_id) => {
@@ -12,35 +21,44 @@ const BrowseCard = ({ singleTask }) => {
   };
 
   return (
-    <div>
-      <div className="card h-80 bg-base-100 shadow-sm dark:bg-gray-800 dark:text-white transition-all duration-300">
-        <div className="card-body">
-          <p className="font-bold text-gray-500 dark:text-gray-300">
+    <div className="h-[450px] flex flex-col bg-base-100 shadow-sm dark:bg-gray-800 dark:text-white rounded-md overflow-hidden">
+      {/* Image Section */}
+      <div className="h-48 w-full">
+        <img
+          src={photo}
+          alt={Taskname}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Body Section */}
+      <div className="flex-grow p-4 flex flex-col justify-between">
+        <div>
+          <p className="font-bold text-gray-500 dark:text-gray-300 mb-1">
             {userName}
           </p>
-
-          <p className="card-title text-ellipsis">{Taskname}</p>
-
-          <h2 className="card-title text-sm md:text-lg lg:text-xl">
-            <span className="font-bold text-indigo-500">Category :</span>{" "}
+          <h2 className="font-semibold text-lg mb-1 truncate">{Taskname}</h2>
+          <p className="text-sm mb-1">
+            <span className="font-bold text-indigo-500">Category:</span>{" "}
             {category}
-          </h2>
+          </p>
+          <p className="text-sm mb-1">
+            <span className="font-bold text-indigo-500">Budget:</span> {price} $
+          </p>
+          <p className="text-sm mb-1">Total Bids: {bidsCount}</p>
+          <p className="text-sm text-gray-400 truncate">
+            Description: {description}
+          </p>
+        </div>
 
-          <h2 className="card-title">
-            <span className="font-bold text-indigo-500">Budget :</span> {price}{" "}
-            $
-          </h2>
-
-          <p className="truncate">{description}</p>
-
-          <div className="card-actions mt-5">
-            <button
-              onClick={() => handleTaskDetails(_id)}
-              className="btn btn-primary w-full"
-            >
-              See Details
-            </button>
-          </div>
+        {/* Button */}
+        <div className="mt-4">
+          <button
+            onClick={() => handleTaskDetails(_id)}
+            className="btn btn-primary w-full"
+          >
+            See Details
+          </button>
         </div>
       </div>
     </div>

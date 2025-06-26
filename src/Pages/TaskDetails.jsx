@@ -12,6 +12,8 @@ const TaskDetails = () => {
     price,
     description,
     bidsCount: initialBids,
+    photo,
+    deadline,
   } = task || {};
 
   const { user } = useContext(AuthContext);
@@ -85,40 +87,53 @@ const TaskDetails = () => {
   }
 
   return (
-    <div className="md:px-10 lg:px-40 px-4 py-10 bg-white dark:bg-gray-900 text-black dark:text-white  shadow-md transition-all duration-300">
-      <h3 className="text-xl font-semibold mb-6 text-center">
+    <div className=" px-4 md:px-40 lg:px-[600px] py-10 bg-white dark:bg-gray-900 text-black dark:text-white shadow-md  transition-all duration-300">
+      <h3 className="text-center text-xl font-semibold mb-6">
         You bid for {bidsCount}{" "}
         {bidsCount === 1 ? "opportunity" : "opportunities"}.
       </h3>
 
-      <div className="card lg:card-side bg-base-100 dark:bg-gray-800 text-black dark:text-white shadow-md transition-all">
-        <div className="card-body p-6 lg:pl-10">
-          <h2 className="card-title font-bold text-2xl">{Taskname}</h2>
+      <div className="flex flex-col rounded-md overflow-hidden shadow-md bg-base-100 dark:bg-gray-800 transition-all duration-300">
+        <div className="w-full h-full">
+          <img
+            src={photo}
+            alt={Taskname}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-          <h2 className="text-sm md:text-lg lg:text-xl mt-2">
-            <span className="font-bold text-indigo-500">Category :</span>{" "}
+        <div className="p-6 flex flex-col gap-3">
+          <h2 className="text-2xl font-bold">{Taskname}</h2>
+
+          <p className="text-sm text-gray-500 dark:text-gray-300">
+            <span className="font-bold text-xl text-indigo-500">Deadline:</span>{" "}
+            {deadline}
+          </p>
+
+          <p className="text-sm text-gray-500 dark:text-gray-300">
+            <span className="font-bold text-xl text-indigo-500">Category:</span>{" "}
             {category}
-          </h2>
+          </p>
 
-          <h2 className="text-sm md:text-lg lg:text-xl mt-2">
-            <span className="font-bold text-indigo-500">Budget :</span> {price}{" "}
-            $
-          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-300">
+            <span className="font-bold text-xl text-indigo-500">Budget:</span>{" "}
+            {price} $
+          </p>
 
-          <p className="text-sm md:text-base lg:text-lg mt-2">
-            <span className="font-bold text-indigo-500">Description :</span>{" "}
+          <p className="text-base leading-relaxed">
+            <span className="font-bold text-xl text-indigo-500">
+              Description:
+            </span>{" "}
             {description}
           </p>
 
-          <div className="mt-6">
-            <button
-              onClick={handleBid}
-              className="btn btn-primary"
-              disabled={isBidding}
-            >
-              {isBidding ? "Placing..." : "Place Bid"}
-            </button>
-          </div>
+          <button
+            onClick={handleBid}
+            className="btn btn-primary text-xl w-full mt-4"
+            disabled={isBidding}
+          >
+            {isBidding ? "Placing..." : "Place Bid"}
+          </button>
         </div>
       </div>
     </div>

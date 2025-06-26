@@ -4,6 +4,15 @@ import { FaTasks } from "react-icons/fa";
 import { MdTask } from "react-icons/md";
 import { BiDollarCircle } from "react-icons/bi";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const DashboardHome = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +44,25 @@ const DashboardHome = () => {
 
   // My Posted Tasks Filter
   const myPostedTasks = tasks.filter((task) => task.email === user?.email);
+
+  const chartData = [
+    {
+      name: "Total Task",
+      value: tasks.length,
+    },
+    {
+      name: "My Task",
+      value: myPostedTasks.length,
+    },
+    {
+      name: "Total Bids",
+      value: totalBids,
+    },
+    {
+      name: "Users",
+      value: users.length,
+    },
+  ];
 
   return (
     <div>
@@ -101,10 +129,28 @@ const DashboardHome = () => {
           </div>
         </div>
 
-        {/* Charts / Calendar Placeholder */}
+        {/* Charts Section */}
         <div className="mb-4 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden xl:col-span-2"></div>
-          <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden"></div>
+          <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden xl:col-span-2 p-4">
+            <h2 className="text-xl font-bold mb-4">Dashboard Overview Chart</h2>
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart
+                data={chartData}
+                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis allowDecimals={false} />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="value"
+                  stroke="#8884d8"
+                  fill="#8884d8"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>

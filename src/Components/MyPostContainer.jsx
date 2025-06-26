@@ -45,7 +45,7 @@ const MyPostContainer = ({ task, setTasks, tasks }) => {
   };
 
   return (
-    <div className="w-full border p-6 rounded-xl shadow-md bg-white">
+    <div className="w-full border p-6 rounded-xl shadow-md bg-white dark:bg-gray-800 dark:text-white ">
       <div className="flex flex-wrap md:flex-nowrap md:justify-between lg:justify-between items-start">
         <div className="">
           <h2 className="text-2xl font-semibold mb-2">{Taskname}</h2>

@@ -51,76 +51,84 @@ const AddTask = () => {
   };
 
   return (
-    <div className="p-6 md:p-24">
+    <div className="p-6 md:p-24 dark:bg-gray-800 dark:text-white ">
       <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold">Add New Task</h1>
+        <h1 className="text-3xl font-bold dark:text-white">Add New Task</h1>
       </div>
       <form onSubmit={handleAddTask} className="grid gap-4">
-        <label className="label">Task Title : </label>
+        <label className="label dark:text-white">Task Title : </label>
         <input
           name="Taskname"
-          className="input input-bordered w-full"
+          className="input input-bordered w-full dark:bg-gray-700"
           placeholder="Task Title"
           required
         />
-        <label className="label">Category : </label>
+        <label className="label dark:text-white">Photo URL :</label>
+        <input
+          type="url"
+          name="photo"
+          className="input input-bordered w-full dark:bg-gray-700"
+          placeholder="Enter a valid image URL"
+          required
+        />
+        <label className="label dark:text-white ">Category : </label>
         <select
           name="category"
-          className="select select-bordered w-full"
+          className="select select-bordered w-full dark:bg-gray-700"
           required
         >
           <option value="">Select Category</option>
           <option value="Web Development">Web Development</option>
-          <option value="Design">Design</option>
+          <option value="Design ">Design</option>
           <option value="Writing">Writing</option>
           <option value="Marketing">Marketing</option>
         </select>
-        <label className="label">Task Description : </label>
+        <label className="label dark:text-white ">Task Description : </label>
         <textarea
           name="description"
-          className="textarea textarea-bordered w-full"
+          className="textarea textarea-bordered w-full dark:bg-gray-700"
           placeholder="Task Description"
           required
         ></textarea>
 
         <div>
-          <label className="label">Deadline : </label>
+          <label className="label dark:text-white">Deadline : </label>
           <br />
           <DatePicker
             selected={deadline}
             onChange={(date) => setDeadline(date)}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full dark:bg-gray-700"
             dateFormat="dd-MM-yyyy"
           />
         </div>
-        <label className="label">Budget : </label>
+        <label className="label dark:text-white">Budget : </label>
         <input
           name="price"
-          className="input input-bordered w-full"
+          className="input input-bordered w-full dark:bg-gray-700"
           placeholder="Budget"
           required
         />
-        <label className="label">Email : </label>
+        <label className="label dark:text-white">Email : </label>
         <input
           type="email"
           name="email"
           value={user?.email || ""}
           readOnly
-          className="input input-bordered w-full"
+          className="input input-bordered w-full dark:bg-gray-700"
         />
-        <label className="label"> User Name : </label>
+        <label className="label dark:text-white"> User Name : </label>
         <input
           type="text"
           name="userName"
           value={user?.displayName || ""}
           readOnly
-          className="input input-bordered w-full"
+          className="input input-bordered w-full dark:bg-gray-700"
         />
 
         <input
           type="submit"
           value="Add Task"
-          className="btn btn-primary w-full"
+          className="btn btn-primary w-full dark:bg-gray-700"
         />
       </form>
     </div>

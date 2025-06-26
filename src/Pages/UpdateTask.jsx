@@ -29,7 +29,7 @@ const UpdateTask = () => {
         if (data.modifiedCount) {
           Swal.fire({
             icon: "success",
-            title: "Coffee updated successfully.",
+            title: "Task updated successfully.",
             showConfirmButton: false,
             timer: 1500,
           });
