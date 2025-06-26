@@ -1,21 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink, Outlet } from "react-router";
+import { GrLogout } from "react-icons/gr";
+import { FaHome, FaTasks } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
+import { MdTask } from "react-icons/md";
 
-import {
-  FaHome,
-  FaBoxOpen,
-  FaMoneyCheckAlt,
-  FaUserEdit,
-  FaSearchLocation,
-} from "react-icons/fa";
 const DashboardLayout = () => {
+  const { logOut } = use(AuthContext);
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="navbar bg-base-300 w-full lg:hidden">
-          <div className="flex-none ">
+          <div className="flex-none">
             <label
               htmlFor="my-drawer-2"
               aria-label="open sidebar"
@@ -38,39 +37,53 @@ const DashboardLayout = () => {
           </div>
           <div className="mx-2 flex-1 px-2 lg:hidden">Dashboard</div>
         </div>
-        {/* Page content here */}
-        <Outlet></Outlet>
-        {/* Page content here */}
+        <Outlet />
       </div>
+
+      {/* Sidebar */}
       <div className="drawer-side">
         <label
           htmlFor="my-drawer-2"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          {/* Sidebar content here */}
-          <Link to="/" className=" text-xl">
-            <button className=" btn bg-success"> Home Page </button>
-          </Link>
-          <li>
-            <Link to="/dashboard/home">
-              <FaHome className="inline-block mr-2" />
-              Home
+        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 flex flex-col justify-between">
+          <div>
+            <Link to="/" className="text-xl mb-10 block">
+              <button className="btn bg-success w-full">
+                Back To Home Page
+              </button>
             </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/add-task">
-              <FaHome className="inline-block mr-2" />
-              Add Task
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/my-tasks">
-              <FaHome className="inline-block mr-2" />
-              My Post Task
-            </Link>
-          </li>
+            <li>
+              <NavLink to="/dashboard/home">
+                <FaHome className="inline-block mr-2" />
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/add-task">
+                <FaTasks className="inline-block mr-2" />
+                Add Task
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/my-tasks">
+                <MdTask className="inline-block mr-2" />
+                My Post Task
+              </NavLink>
+            </li>
+          </div>
+
+          {/* Logout button at the bottom */}
+          <div>
+            <button
+              onClick={logOut}
+              className="flex w-full cursor-pointer items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300 hover:text-gray-700 transition-colors duration-300 transform"
+            >
+              <GrLogout className="w-5 h-5" />
+              <span className="mx-4 font-medium">Logout</span>
+            </button>
+          </div>
         </ul>
       </div>
     </div>

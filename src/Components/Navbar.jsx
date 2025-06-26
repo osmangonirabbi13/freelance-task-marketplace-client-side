@@ -35,13 +35,10 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/add-task">Add Task</NavLink>
+        <NavLink to="/about">About Us</NavLink>
       </li>
       <li>
         <NavLink to="/browse-tasks">Browse Task</NavLink>
-      </li>
-      <li>
-        <NavLink to="/my-tasks">My Post Task</NavLink>
       </li>
       {user && (
         <>
@@ -50,10 +47,6 @@ const Navbar = () => {
           </li>
         </>
       )}
-
-      <li>
-        <NavLink to="/about">About Us</NavLink>
-      </li>
     </ul>
   );
   return (
@@ -98,13 +91,10 @@ const Navbar = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/add-task">Add Task</NavLink>
+              <NavLink to="/about">About Us</NavLink>
             </li>
             <li>
               <NavLink to="/browse-tasks">Browse Task</NavLink>
-            </li>
-            <li>
-              <NavLink to="/my-tasks">My Post Task</NavLink>
             </li>
             {user && (
               <>
@@ -113,10 +103,6 @@ const Navbar = () => {
                 </li>
               </>
             )}
-
-            <li>
-              <NavLink to="/about">About Us</NavLink>
-            </li>
           </ul>
         </div>
         <div className="navbar-end">
@@ -183,13 +169,13 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/auth/login"
-                className="btn btn-primary px-6 md:px-10"
+                className="btn btn-primary border-none px-6 md:px-10"
               >
                 Login
               </NavLink>
               <NavLink
                 to="/auth/register"
-                className="btn btn-primary  ml-5 mr-4 px-6 md:px-10"
+                className="btn btn-primary border-none ml-5 mr-4 px-6 md:px-10"
               >
                 Register
               </NavLink>

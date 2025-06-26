@@ -49,6 +49,19 @@ export const router = createBrowserRouter([
           ),
         HydrateFallback: Loading,
       },
+      {
+        path: "browse-tasks/:id",
+        element: (
+          <PrivateRoute>
+            <TaskDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
+          ),
+        HydrateFallback: Loading,
+      },
     ],
   },
 
@@ -92,15 +105,6 @@ export const router = createBrowserRouter([
         loader: () =>
           fetch(
             "https://assignment-10-server-side-dun-two.vercel.app/freelances"
-          ),
-        HydrateFallback: Loading,
-      },
-      {
-        path: "browse-tasks/:id",
-        element: <TaskDetails />,
-        loader: ({ params }) =>
-          fetch(
-            `https://assignment-10-server-side-dun-two.vercel.app/freelances/${params.id}`
           ),
         HydrateFallback: Loading,
       },
