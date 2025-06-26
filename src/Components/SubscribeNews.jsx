@@ -2,7 +2,7 @@ import React from "react";
 
 const SubscribeNews = () => {
   return (
-    <div className="pt-20  bg-[#FBF7EC] dark:bg-gray-900 dark:border-1 dark:shadow-sm text-black dark:text-white pb-10">
+    <div className="pt-20  bg-[#FBF7EC] dark:bg-gray-800  dark:shadow-sm text-black dark:text-white pb-10">
       <div className="w-full " bis_skin_checked="1">
         <div
           className="container flex flex-col flex-wrap content-center justify-center p-4 py-20 mx-auto md:p-10"

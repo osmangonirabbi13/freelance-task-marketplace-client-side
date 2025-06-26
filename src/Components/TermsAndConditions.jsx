@@ -2,12 +2,12 @@ import React from "react";
 
 const TermsAndConditions = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
+    <div className=" mx-auto px-4 md:px-20 lg:px-50 py-16  dark:bg-gray-800 dark:text-white">
       <h1 className="text-4xl font-bold text-center text-success mb-10">
         Terms & Conditions
       </h1>
 
-      <div className="text-gray-700 space-y-6 text-base leading-7">
+      <div className="text-gray-700 dark:text-white space-y-6 text-base leading-7">
         <p>
           Welcome to our Freelance Task Marketplace. By accessing or using our
           platform, you agree to be bound by the following terms and conditions.
@@ -23,7 +23,7 @@ const TermsAndConditions = () => {
           information and to keep it updated.
         </p>
 
-        <h2 className="text-xl font-semibold text-success mt-8">
+        <h2 className="text-xl  font-semibold text-success mt-8">
           2. Posting & Bidding
         </h2>
         <p>
@@ -83,7 +83,7 @@ const TermsAndConditions = () => {
           the platform after changes implies acceptance of the updated terms.
         </p>
 
-        <p className="mt-10 font-semibold text-center text-gray-800">
+        <p className="mt-10 font-semibold text-center dark:text-white text-gray-800">
           If you have any questions regarding our Terms & Conditions, please
           contact us at{" "}
           <a

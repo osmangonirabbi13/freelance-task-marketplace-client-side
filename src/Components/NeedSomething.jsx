@@ -31,11 +31,11 @@ const NeedSomething = () => {
         </p>
       </Fade>
 
-      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 max-w-screen-2xl mx-auto px-8 md:px-12 lg:px-8 mt-20 pb-10 ">
-        <Fade direction="up" duration={1000}>
+      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 max-w-screen-2xl mx-auto px-8 md:px-12 lg:px-8 mt-20 pb-10  ">
+        <Fade direction="up" duration={1000} className="dark:bg-gray-800">
           <div className="h-auto shadow-sm p-3">
             <img
-              className="w-20 dark:bg-white p-2"
+              className="w-20 dark:bg-gray-800 p-2"
               src={job}
               alt=""
               srcset=""
@@ -46,10 +46,10 @@ const NeedSomething = () => {
             </p>
           </div>
         </Fade>
-        <Fade direction="up" duration={1000}>
+        <Fade direction="up" duration={1000} className="dark:bg-gray-800">
           <div className="h-auto shadow-sm p-3">
             <img
-              className="w-20 dark:bg-white p-2"
+              className="w-20 dark:bg-gray-800 p-2"
               src={freelancer}
               alt=""
               srcset=""
@@ -61,10 +61,10 @@ const NeedSomething = () => {
             </p>
           </div>
         </Fade>
-        <Fade direction="up" duration={1000}>
+        <Fade direction="up" duration={1000} className="dark:bg-gray-800">
           <div className="h-auto shadow-sm p-3">
             <img
-              className="w-20  dark:bg-white p-2"
+              className="w-20  dark:bg-gray-800 p-2"
               src={pay}
               alt=""
               srcset=""
@@ -75,10 +75,10 @@ const NeedSomething = () => {
             </p>
           </div>
         </Fade>
-        <Fade direction="up" duration={1000}>
+        <Fade direction="up" duration={1000} className="dark:bg-gray-800">
           <div className="h-auto shadow-sm p-3">
             <img
-              className="w-20 dark:bg-white p-2"
+              className="w-20 dark:bg-gray-800 p-2"
               src={help}
               alt=""
               srcset=""

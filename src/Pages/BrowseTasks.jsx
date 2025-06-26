@@ -34,7 +34,7 @@ const BrowseTasks = () => {
   };
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-4 md:px-12 mt-20">
+    <div className=" mx-auto px-4 md:px-12 lg:px-40 dark:bg-gray-900 dark:text-white text-black min-h-screen py-8 transition-all">
       <div className="lg:hidden mb-4 flex justify-end">
         <button
           onClick={() => setShowFilters(!showFilters)}
@@ -53,13 +53,13 @@ const BrowseTasks = () => {
         <input
           type="text"
           placeholder="Search tasks..."
-          className="input input-bordered w-full md:w-3/5"
+          className="input input-bordered w-full md:w-3/5 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         <select
-          className="select select-bordered w-full md:max-w-xs"
+          className="select select-bordered w-full md:max-w-xs dark:bg-gray-800 dark:border-gray-700"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >

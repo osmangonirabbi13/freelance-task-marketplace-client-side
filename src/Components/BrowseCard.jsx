@@ -1,6 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router";
-// import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 const BrowseCard = ({ singleTask }) => {
   const { _id, Taskname, category, price, description, userName } = singleTask;
@@ -13,20 +12,27 @@ const BrowseCard = ({ singleTask }) => {
   };
 
   return (
-    <div className="">
-      <div className="card bg-base-100 h-80  shadow-sm ">
+    <div>
+      <div className="card h-80 bg-base-100 shadow-sm dark:bg-gray-800 dark:text-white transition-all duration-300">
         <div className="card-body">
-          <p className="font-bold text-gray-400"> {userName}</p>
-          <p className="card-title  text-ellipsis">{Taskname}</p>
+          <p className="font-bold text-gray-500 dark:text-gray-300">
+            {userName}
+          </p>
+
+          <p className="card-title text-ellipsis">{Taskname}</p>
+
           <h2 className="card-title text-sm md:text-lg lg:text-xl">
             <span className="font-bold text-indigo-500">Category :</span>{" "}
             {category}
           </h2>
+
           <h2 className="card-title">
-            <span className="font-bold text-indigo-500">Budget : </span>
-            {price} $
+            <span className="font-bold text-indigo-500">Budget :</span> {price}{" "}
+            $
           </h2>
-          <p className="truncate ">{description}</p>
+
+          <p className="truncate">{description}</p>
+
           <div className="card-actions mt-5">
             <button
               onClick={() => handleTaskDetails(_id)}

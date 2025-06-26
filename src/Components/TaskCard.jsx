@@ -1,5 +1,4 @@
 import React from "react";
-import { FaHeart, FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
 const ServiceCard = ({ singleTask }) => {
@@ -15,21 +14,27 @@ const ServiceCard = ({ singleTask }) => {
   };
 
   return (
-    <div className=" ">
-      <div className="card bg-base-100 h-80 shadow-sm dark:bg-gray-900 text-black dark:text-white dark:border-1 mb-5">
+    <div>
+      <div className="card h-80 bg-base-100 shadow-sm mb-5 dark:bg-gray-800 dark:text-white transition-all duration-300">
         <div className="card-body">
-          <p className="font-bold text-gray-400"> {userName}</p>
-          <p className="font-bold">Deadline : {deadline}</p>
-          <p className="card-title  text-ellipsis">{Taskname}</p>
+          <p className="font-bold text-gray-500 dark:text-gray-300">
+            {userName}
+          </p>
+          <p className="font-semibold text-sm">Deadline: {deadline}</p>
+
+          <p className="card-title text-ellipsis">{Taskname}</p>
+
           <h2 className="card-title text-sm md:text-lg lg:text-xl">
-            <span className="font-bold text-indigo-500">Category :</span>{" "}
+            <span className="font-bold text-indigo-500">Category:</span>{" "}
             {category}
           </h2>
+
           <h2 className="card-title">
-            <span className="font-bold text-indigo-500">Budget : </span>
-            {price} $
+            <span className="font-bold text-indigo-500">Budget:</span> {price} $
           </h2>
-          <p className="truncate ">{description}</p>
+
+          <p className="truncate">{description}</p>
+
           <div className="card-actions mt-5">
             <button
               onClick={() => handleTaskDetails(_id)}

@@ -2,12 +2,12 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
+    <div className=" px-4 md:px20 dark:bg-gray-800 dark:text-white  lg:px-40 py-16">
       <h1 className="text-4xl font-bold text-center text-success mb-8">
         About Us
       </h1>
 
-      <div className="text-gray-700 text-lg space-y-6">
+      <div className="text-gray-700 text-lg space-y-6 dark:text-white">
         <p>
           Our platform is built to bridge the gap between clients and skilled
           freelancers. Whether you're someone with a task that needs to be done,

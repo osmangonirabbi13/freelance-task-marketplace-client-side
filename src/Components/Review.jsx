@@ -7,7 +7,7 @@ const Review = () => {
         Client <span className="text-black dark:text-white ">Review</span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 ">
-        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto  dark:bg-gray-900 dark:text-white dark:border-1">
+        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto  dark:bg-gray-800 dark:text-white ">
           <img
             src="https://i.ibb.co.com/PsG9MrBZ/close-up-portrait-curly-handsome-european-male.jpg"
             alt=""
@@ -27,7 +27,7 @@ const Review = () => {
           <div className="text-yellow-500 text-lg">★★★★★</div>
         </div>
         {/* card 2 */}
-        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-900 dark:text-white dark:border-1">
+        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-800 dark:text-white ">
           <img
             src="https://i.ibb.co.com/sd4hhqkR/portrait-white-man-isolated.jpg"
             alt=""
@@ -47,7 +47,7 @@ const Review = () => {
           <div className="text-yellow-500 text-lg">★★★★★</div>
         </div>
         {/* card 3 */}
-        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-900 dark:text-white dark:border-1">
+        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-800 dark:text-white ">
           <img
             src="https://i.ibb.co.com/8LtdxbbM/closeup-young-female-professional-making-eye-contact-against-colored-background.jpg"
             alt=""
@@ -67,7 +67,7 @@ const Review = () => {
           <div className="text-yellow-500 text-lg">★★★★★</div>
         </div>
         {/* card 4 */}
-        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-900 dark:text-white dark:border-1">
+        <div className="bg-white rounded-xl shadow-md p-6 text-center w-full max-w-sm mx-auto dark:bg-gray-800 dark:text-white ">
           <img
             src="https://i.pravatar.cc/100?img=4"
             alt=""

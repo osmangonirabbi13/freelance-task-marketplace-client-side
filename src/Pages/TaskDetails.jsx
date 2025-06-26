@@ -12,7 +12,7 @@ const TaskDetails = () => {
     price,
     description,
     bidsCount: initialBids,
-  } = task;
+  } = task || {};
 
   const { user } = useContext(AuthContext);
 
@@ -69,50 +69,51 @@ const TaskDetails = () => {
 
   if (!_id) {
     return (
-      <div className="flex flex-col justify-center items-center max-w-screen-2xl mx-auto bg-white mt-40 rounded-2xl">
-        <h1 className="text-3xl font-bold text-blue-500 mb-4 pt-9">
+      <div className="flex flex-col justify-center items-center max-w-screen-2xl mx-auto bg-white dark:bg-gray-900 text-black dark:text-white mt-40 rounded-2xl p-8 transition-all">
+        <h1 className="text-3xl font-bold text-blue-500 mb-4">
           No Data Found!!
         </h1>
-        <p className="text-gray-700 text-xl">
-          No Data Found with this Number -{" "}
-          <span className="font-bold text-black-600">{_id}</span>
+        <p className="text-lg text-gray-700 dark:text-gray-300">
+          No Data Found with this Number -
+          <span className="font-bold text-black dark:text-white"> {_id}</span>
         </p>
         <Link to="/browse-tasks">
-          <button className="btn btn-primary mt-6 mb-6">
-            Browse All Tasks
-          </button>
+          <button className="btn btn-primary mt-6">Browse All Tasks</button>
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="mt-10 max-w-screen-2xl mx-auto px-4">
-      <h3 className="text-xl font-semibold mb-4 text-center">
+    <div className="md:px-10 lg:px-40 px-4 py-10 bg-white dark:bg-gray-900 text-black dark:text-white  shadow-md transition-all duration-300">
+      <h3 className="text-xl font-semibold mb-6 text-center">
         You bid for {bidsCount}{" "}
         {bidsCount === 1 ? "opportunity" : "opportunities"}.
       </h3>
 
-      <div className="card lg:card-side bg-base-100 shadow-sm">
-        <div className="card-body pl-10">
-          <h2 className="card-title font-bold">{Taskname}</h2>
-          <h2 className="text-sm md:text-lg lg:text-xl">
+      <div className="card lg:card-side bg-base-100 dark:bg-gray-800 text-black dark:text-white shadow-md transition-all">
+        <div className="card-body p-6 lg:pl-10">
+          <h2 className="card-title font-bold text-2xl">{Taskname}</h2>
+
+          <h2 className="text-sm md:text-lg lg:text-xl mt-2">
             <span className="font-bold text-indigo-500">Category :</span>{" "}
             {category}
           </h2>
-          <h2 className="text-sm md:text-lg lg:text-xl">
+
+          <h2 className="text-sm md:text-lg lg:text-xl mt-2">
             <span className="font-bold text-indigo-500">Budget :</span> {price}{" "}
             $
           </h2>
-          <p className="text-sm md:text-lg lg:text-lg">
+
+          <p className="text-sm md:text-base lg:text-lg mt-2">
             <span className="font-bold text-indigo-500">Description :</span>{" "}
             {description}
           </p>
 
-          <div className="mt-4">
+          <div className="mt-6">
             <button
-              className="btn btn-primary"
               onClick={handleBid}
+              className="btn btn-primary"
               disabled={isBidding}
             >
               {isBidding ? "Placing..." : "Place Bid"}

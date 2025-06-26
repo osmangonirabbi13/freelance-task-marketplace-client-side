@@ -8,7 +8,7 @@ import women from "../assets/women.png";
 
 const FreelanceTalent = () => {
   return (
-    <div className="pt-20  bg-[#FFEDE9] dark:bg-gray-900 text-black dark:text-white pb-10">
+    <div className="pt-20  bg-[#FFEDE9] dark:bg-gray-800 text-black dark:text-white pb-10">
       <div className="flex flex-col lg:flex-row md:flex-row  max-w-screen-2xl mx-auto px-8 md:px-12 lg:px-8 lg:justify-between items-center">
         <div>
           <h1 className="text-3xl  lg:text-5xl ">
