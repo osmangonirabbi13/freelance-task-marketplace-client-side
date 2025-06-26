@@ -1,36 +1,32 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext, useTheme } from "../Provider/AuthProvider";
 import Loading from "../Pages/Loading";
 import Swal from "sweetalert2";
-import { FaMoon } from "react-icons/fa";
-import { IoSunnyOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user, loading, logOut } = use(AuthContext);
   const { darkMode, toggleDarkMode } = useTheme();
-  if (loading) {
-    return <Loading />;
-  }
+
+  if (loading) return <Loading />;
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        if (!loading) {
-          return Swal.fire({
-            title: "Logout Successfull",
-            icon: "success",
-            draggable: true,
-          });
-        }
+        Swal.fire({
+          title: "Logout Successful",
+          icon: "success",
+          toast: true,
+          position: "top-end",
+          timer: 2000,
+          showConfirmButton: false,
+        });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(console.error);
   };
 
-  const Links = (
-    <ul className="dark:bg-gray-900 text-black dark:text-white">
+  const navLinks = (
+    <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -41,70 +37,56 @@ const Navbar = () => {
         <NavLink to="/browse-tasks">Browse Task</NavLink>
       </li>
       {user && (
-        <>
-          <li>
-            <NavLink to="/dashboard/home">Dashboard</NavLink>
-          </li>
-        </>
+        <li>
+          <NavLink to="/dashboard/home">Dashboard</NavLink>
+        </li>
       )}
-    </ul>
+    </>
   );
+
   return (
-    <nav>
-      <div className="navbar   p-0 bg-white px-2 md:px-12 lg:px-16 xl:px-50 lg:py-4 body items-center dark:shadow-sm dark:bg-gray-900 text-black dark:text-white border-b-1 border-blue-100">
-        {/* Nav bar start  */}
+    <div className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-md">
+      <div className="navbar max-w-7xl mx-auto px-4 py-2 text-black dark:text-white">
+        {/* Start */}
         <div className="navbar-start">
+          {/* Mobile dropdown */}
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3  w-52 p-2 shadow dark:bg-gray-900 text-black dark:text-white"
+              className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 dark:bg-gray-800 rounded-box w-52"
             >
-              {Links}
+              {navLinks}
             </ul>
           </div>
-          <a className=" text-lg md:text-2xl lg:text-2xl font-semibold md:flex lg:flex hidden">
-            Freelance <span className="text-emerald-400"> Marketplace </span>
-          </a>
-          <div></div>
+
+          <Link to="/" className="text-xl font-bold hidden md:inline">
+            Freelance <span className="text-emerald-500">Marketplace</span>
+          </Link>
         </div>
-        {/* Nav bar center  */}
+
+        {/* Center */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-5 text-xl font-medium">
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About Us</NavLink>
-            </li>
-            <li>
-              <NavLink to="/browse-tasks">Browse Task</NavLink>
-            </li>
-            {user && (
-              <>
-                <li>
-                  <NavLink to="/dashboard/home">Dashboard</NavLink>
-                </li>
-              </>
-            )}
+          <ul className="menu menu-horizontal px-1 gap-4 text-lg font-medium">
+            {navLinks}
           </ul>
         </div>
+
+        {/* End */}
         <div className="navbar-end">
           <label onClick={toggleDarkMode} className="swap swap-rotate mr-2">
             {darkMode ? (
@@ -183,7 +165,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

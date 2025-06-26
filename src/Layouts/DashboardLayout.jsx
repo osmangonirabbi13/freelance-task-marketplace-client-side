@@ -12,7 +12,6 @@ const DashboardLayout = () => {
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        {/* Navbar */}
         <div className="navbar bg-base-300 w-full lg:hidden">
           <div className="flex-none">
             <label
@@ -40,33 +39,32 @@ const DashboardLayout = () => {
         <Outlet />
       </div>
 
-      {/* Sidebar */}
       <div className="drawer-side">
         <label
           htmlFor="my-drawer-2"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 flex flex-col justify-between">
+        <ul className="menu bg-base-200 text-xl text-base-content min-h-full w-80 p-4 flex flex-col justify-between">
           <div>
             <Link to="/" className="text-xl mb-10 block">
               <button className="btn bg-success w-full">
                 Back To Home Page
               </button>
             </Link>
-            <li>
+            <li className="mb-5">
               <NavLink to="/dashboard/home">
-                <FaHome className="inline-block mr-2" />
+                <FaHome className="inline-block mr-2 " />
                 Home
               </NavLink>
             </li>
-            <li>
+            <li className="mb-5">
               <NavLink to="/dashboard/add-task">
                 <FaTasks className="inline-block mr-2" />
                 Add Task
               </NavLink>
             </li>
-            <li>
+            <li className="mb-5">
               <NavLink to="/dashboard/my-tasks">
                 <MdTask className="inline-block mr-2" />
                 My Post Task
@@ -74,7 +72,6 @@ const DashboardLayout = () => {
             </li>
           </div>
 
-          {/* Logout button at the bottom */}
           <div>
             <button
               onClick={logOut}

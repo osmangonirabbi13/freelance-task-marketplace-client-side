@@ -17,6 +17,7 @@ const TaskDetails = () => {
   const { user } = useContext(AuthContext);
 
   const [bidsCount, setBidsCount] = useState(initialBids || 0);
+  const [isBidding, setIsBidding] = useState(false);
 
   const handleBid = () => {
     if (!user) {
@@ -24,7 +25,7 @@ const TaskDetails = () => {
       return;
     }
 
-    // setBidsCount(bidsCount + 1);
+    setIsBidding(true);
 
     fetch(
       `https://assignment-10-server-side-dun-two.vercel.app/freelances/${_id}/bid`,
@@ -33,38 +34,56 @@ const TaskDetails = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        // যদি দরকার হয় বিডার ডেটা পাঠাতে, body দিয়ে দিতে পারো
+        // body: JSON.stringify({ userId: user._id, bidAmount: 100 })
       }
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) {
+        if (
+          data.bidInserted ||
+          data.bidsCountUpdated ||
+          data.modifiedCount > 0
+        ) {
           Swal.fire({
             title: "Bid placed successfully!",
             icon: "success",
           });
-          setBidsCount(bidsCount + 1);
+          setBidsCount((prev) => prev + 1);
+        } else {
+          Swal.fire({
+            title: "Failed to place bid",
+            icon: "error",
+          });
         }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error occurred!",
+          text: error.message || "Something went wrong.",
+          icon: "error",
+        });
+      })
+      .finally(() => {
+        setIsBidding(false);
       });
   };
 
   if (!_id) {
     return (
-      <div>
-        <div className="flex flex-col justify-center items-center  max-w-screen-2xl mx-auto bg-white mt-40 rounded-2xl">
-          <h1 className="text-3xl font-bold text-blue-500 mb-4 pt-9">
-            No Data Found!!
-          </h1>
-          <p className="text-gray-700 text-xl">
-            No Data Found with this Number -{" "}
-            <span className="font-bold text-black-600">{_id}</span>
-          </p>
-          <Link to="/browse-tasks">
-            <button className="btn btn-primary mt-6 mb-6">
-              {" "}
-              Browse All Tasks
-            </button>
-          </Link>
-        </div>
+      <div className="flex flex-col justify-center items-center max-w-screen-2xl mx-auto bg-white mt-40 rounded-2xl">
+        <h1 className="text-3xl font-bold text-blue-500 mb-4 pt-9">
+          No Data Found!!
+        </h1>
+        <p className="text-gray-700 text-xl">
+          No Data Found with this Number -{" "}
+          <span className="font-bold text-black-600">{_id}</span>
+        </p>
+        <Link to="/browse-tasks">
+          <button className="btn btn-primary mt-6 mb-6">
+            Browse All Tasks
+          </button>
+        </Link>
       </div>
     );
   }
@@ -93,8 +112,12 @@ const TaskDetails = () => {
           </p>
 
           <div className="mt-4">
-            <button className="btn btn-primary" onClick={handleBid}>
-              Bid Placed
+            <button
+              className="btn btn-primary"
+              onClick={handleBid}
+              disabled={isBidding}
+            >
+              {isBidding ? "Placing..." : "Place Bid"}
             </button>
           </div>
         </div>
